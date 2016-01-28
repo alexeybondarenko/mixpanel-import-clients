@@ -2,7 +2,7 @@ var fs = require('fs');
 var mixpanel = require('mixpanel');
 
 // Mixpanel INIT
-
+var mixpanel = Mixpanel.init('6fd9434dba686db2d1ab66b4462a3a67');
 
 function readLines(input, func) {
     var remaining = '';
@@ -30,12 +30,15 @@ function readLines(input, func) {
 
 var input = fs.createReadStream('numbers.txt');
 readLines(input, function (phones) {
-    phones.map(function (phone) {
+    phones.map( function (phone) {
 
-        // mixpanel user creation
         // mixpanel add event for user
-
-
+        mixpanel.track("Client Imported");
+        // mixpanel user creation
+        mixpanel.people.set({
+            distinct_id: phone,
+            sender_phone: phone
+        });
     })
 });
 
