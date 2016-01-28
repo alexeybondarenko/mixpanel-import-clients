@@ -42,8 +42,8 @@ readLines(input, function (phones) {
     })
 });
 
-var phone = '+380666666666';
-mixpanel_importer.import("Client Imported", new Date(), {
-    distinct_id: phone,
-    sender_phone: phone
-});
+// var phone = '+380666666666';
+// mixpanel_importer.import("Client Imported", new Date(), {
+//     distinct_id: phone,
+//     sender_phone: phone
+// });
